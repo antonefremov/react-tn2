@@ -1,3 +1,3 @@
-function TextBox(props) {
-  return <span>{props.text}</span>;
+function TextBox(children) {
+  return <span>{children.text}</span>;
 }

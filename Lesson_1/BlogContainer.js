@@ -1,22 +1,22 @@
 class BlogContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { blogs };
+    this.state = { posts };
   }
 
   render() {
-    const { blogs } = this.state;
-    return React.createElement(BlogList, { blogs });
+    const { posts } = this.state;
+    return React.createElement(BlogList, { posts });
   }
 }
 
-const BlogList = ({ blogs }) => {
+const BlogList = ({ posts }) => {
   return DOM.ul(
       null,
       _.map(
-        blogs,
-        (blog, key) => (
-          <BlogItem key={key} imageProps={blog.imageProps} spanText={blog.spanText}/>
+        posts,
+        (post) => (
+          <BlogItem key={post.key} image={post.image} text={post.text}/>
         )
       )
     )
