@@ -1,0 +1,24 @@
+function Image(props) {
+    return <img src={props.src}
+                width={props.width}
+                height={props.height}
+                alt={props.alt}/>;
+}
+
+Image.defaultProps = {
+  image: {
+    src: "./../DefaultBlogImage.jpg",
+    alt: "No Image Provided",
+    width: "200px",
+    height: "100px"
+  }
+}
+
+Image.propTypes = {
+  image: PropTypes.shape({
+    src: PropTypes.string.isRequired,
+    width: PropTypes.string.isRequired,
+    height: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired
+  })
+}
