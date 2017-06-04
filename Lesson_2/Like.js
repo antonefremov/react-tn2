@@ -1,10 +1,13 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
 class Like extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       likes: this.props.likes || 0
     }
-    this.addLike = this.addLike.bind(this)
+    this.addLike = this.addLike.bind(this);
   }
 
   addLike() {
@@ -28,3 +31,5 @@ Like.defaultProps = {
 Like.propTypes = {
   likes: PropTypes.number.isRequired
 }
+
+export default Like;

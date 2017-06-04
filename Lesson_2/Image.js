@@ -1,3 +1,6 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
 function Image(props) {
     return <img src={props.src}
                 width={props.width}
@@ -22,3 +25,5 @@ Image.propTypes = {
     alt: PropTypes.string.isRequired
   })
 }
+
+export default Image;

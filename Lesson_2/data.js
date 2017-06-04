@@ -26,7 +26,7 @@ const posts = [
     },
     details: {
       author: 'Sinead OConnor',
-      createdAt: moment().startOf('week').fromNow(),
+      createdAt: moment("20170510", "YYYYMMDD").fromNow(),
       updatedAt: moment().startOf('day').fromNow(),
       likes: 15
     }

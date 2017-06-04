@@ -1,3 +1,8 @@
+import React from 'react';
+
+import BlogList from './BlogList';
+import BlogItem from './BlogItem';
+
 class BlogContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -16,8 +21,10 @@ const BlogList = ({ posts }) => {
       _.map(
         posts,
         (post) => (
-          <BlogItem key={post.key} text={post.text} image={post.image} details={post.details}/>
+          <BlogItem key={post.key} post={post}/>
         )
       )
     )
 }
+
+export default BlogContainer;

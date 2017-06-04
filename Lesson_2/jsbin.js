@@ -1,5 +1,4 @@
 const DOM = React.DOM;
-//const moment = moment;
 
 const posts = [
   {
@@ -29,7 +28,7 @@ const posts = [
     },
     details: {
       author: 'Sinead OConnor',
-      createdAt: moment().startOf('week').fromNow(),
+      createdAt: moment("20170510", "YYYYMMDD").fromNow(),
       updatedAt: moment().startOf('day').fromNow(),
       likes: 15
     }
@@ -57,32 +56,30 @@ function TextBox(children) {
 }
 
 function Image(props) {
-    return <img src={props.src}
-                width={props.width}
-                height={props.height}
-                alt={props.alt}/>;
+  const {image} = props
+  return <img src={image.src}
+                width={image.width}
+                height={image.height}
+                alt={image.alt}/>;
 }
 
 function BlogItem(props) {
-  const {text, image, details} = props
+  const {post} = props
   return <div>
-      <TextBox text={text}/>
-      <br/>
-      <Image src={image.src} width={image.width} height={image.height} alt={image.alt}/>
-      <br/>
-      <Like likes={details.likes}/>
-      <Details details={details}/>
-      <br/>
+      <TextBox text={post.text}/>
+      <Image image={post.image}/>
+      <Like likes={post.details.likes}/>
+      <Details details={post.details}/>
     </div>
 }
 
-function Details(details) {
+function Details({details}) {
   return <div>
-    <span>by {details.details.author}</span>
+    <span>by {details.author}</span>
     <br/>
-    <span>Created At: {details.details.createdAt}</span>
+    <span>Created At: {details.createdAt}</span>
     <br/>
-    <span>Last Edited At: {details.details.updatedAt}</span>
+    <span>Last Edited At: {details.updatedAt}</span>
   </div>;
 }
 
@@ -104,7 +101,7 @@ const BlogList = ({ posts }) => {
       _.map(
         posts,
         (post) => (
-          <BlogItem key={post.key} text={post.text} image={post.image} details={post.details}/>
+          <BlogItem key={post.key} post={post}/>
         )
       )
     )
@@ -116,7 +113,7 @@ class Like extends React.Component {
     this.state = {
       likes: this.props.likes || 0
     }
-    this.addLike = this.addLike.bind(this)
+    this.addLike = this.addLike.bind(this);
   }
 
   addLike() {

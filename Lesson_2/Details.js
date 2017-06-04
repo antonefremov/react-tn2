@@ -1,10 +1,13 @@
-function Details(details) {
+import React from 'react';
+import PropTypes from 'prop-types';
+
+function Details({details}) {
   return <div>
-    <span>by {details.details.author}</span>
+    <span>by {details.author}</span>
     <br/>
-    <span>Created At: {details.details.createdAt}</span>
+    <span>Created At: {details.createdAt}</span>
     <br/>
-    <span>Last Edited At: {details.details.updatedAt}</span>
+    <span>Last Edited At: {details.updatedAt}</span>
   </div>;
 }
 
@@ -25,3 +28,5 @@ Details.propTypes = {
     likes: PropTypes.number
   })
 }
+
+export default Details;
