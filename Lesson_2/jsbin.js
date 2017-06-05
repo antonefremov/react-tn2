@@ -14,7 +14,7 @@ const posts = [
       author: 'John Grant',
       createdAt: moment("20170520", "YYYYMMDD").fromNow(),
       updatedAt: moment().subtract(3,'days').calendar(),
-      likes: 5
+      likes: 2
     }
  },
  {
@@ -51,35 +51,37 @@ const posts = [
  }
 ]
 
-function TextBox(children) {
-  return <span>''{children.text}''</span>;
+function TextBox(props) {
+  return <span>''{props.children}''</span>;
 }
 
 function Image(props) {
-  const {image} = props
-  return <img src={image.src}
-                width={image.width}
-                height={image.height}
-                alt={image.alt}/>;
+  return <img src={props.src}
+                width={props.width}
+                height={props.height}
+                alt={props.alt}/>;
 }
 
-function BlogItem(props) {
-  const {post} = props
+function BlogItem({post}) {
   return <div>
-      <TextBox text={post.text}/>
-      <Image image={post.image}/>
-      <Like likes={post.details.likes}/>
-      <Details details={post.details}/>
+      <TextBox>{post.text}</TextBox>
+      <Image {...post.image}/>
+      <Like {...post.details}/>
+      <Details {...post.details}/>
     </div>
 }
 
-function Details({details}) {
+function Details(props) {
   return <div>
-    <span>by {details.author}</span>
+    <span>by {props.author}</span>
     <br/>
-    <span>Created At: {details.createdAt}</span>
+    {props.createdAt.length > 0 &&
+      <span>Created At: {props.createdAt}</span>
+    }
     <br/>
-    <span>Last Edited At: {details.updatedAt}</span>
+    {props.updatedAt.length > 0 &&
+      <span>Last Edited At: {props.updatedAt}</span>
+    }
   </div>;
 }
 
@@ -111,13 +113,13 @@ class Like extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      likes: this.props.likes || 0
+      likes: this.props.likes
     }
     this.addLike = this.addLike.bind(this);
   }
 
   addLike() {
-    this.setState({ likes: this.state.likes + 1 })
+    this.setState({ likes: +this.state.likes + 1 })
   }
 
   render() {

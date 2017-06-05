@@ -8,10 +8,10 @@ import Like from './Like';
 
 function BlogItem({post}) {
   return <div>
-      <TextBox text={post.text}/>
-      <Image image={post.image}/>
-      <Like likes={post.details.likes}/>
-      <Details details={post.details}/>
+      <TextBox>{post.text}</TextBox>
+      <Image {...post.image}/>
+      <Like {...post.details}/>
+      <Details {...post.details}/>
     </div>
 }
 

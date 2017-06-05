@@ -5,7 +5,7 @@ class Like extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      likes: this.props.likes || 0
+      likes: this.props.likes
     }
     this.addLike = this.addLike.bind(this);
   }

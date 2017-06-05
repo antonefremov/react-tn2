@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function TextBox(children) {
-  return <span>{children.text}</span>;
+function TextBox(props) {
+  return <span>{props.children}</span>;
 }
 
 TextBox.defaultProps = {

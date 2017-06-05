@@ -1,13 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Details({details}) {
+function Details(props) {
   return <div>
-    <span>by {details.author}</span>
+    <span>by {props.author}</span>
     <br/>
-    <span>Created At: {details.createdAt}</span>
+    {props.createdAt.length > 0 &&
+      <span>Created At: {props.createdAt}</span>
+    }
     <br/>
-    <span>Last Edited At: {details.updatedAt}</span>
+    {props.updatedAt.length > 0 &&
+      <span>Last Edited At: {props.updatedAt}</span>
+    }
   </div>;
 }
 
