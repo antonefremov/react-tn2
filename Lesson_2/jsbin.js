@@ -75,13 +75,9 @@ function Details(props) {
   return <div>
     <span>by {props.author}</span>
     <br/>
-    {props.createdAt.length > 0 &&
-      <span>Created At: {props.createdAt}</span>
-    }
+    { !!props.createdAt && <span>Created At: {props.createdAt}</span> }
     <br/>
-    {props.updatedAt.length > 0 &&
-      <span>Last Edited At: {props.updatedAt}</span>
-    }
+    { !!props.updatedAt && <span>Updated At: {props.updatedAt}</span> }
   </div>;
 }
 
