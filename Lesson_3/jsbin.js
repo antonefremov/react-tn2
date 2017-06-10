@@ -101,7 +101,10 @@ class BlogPage extends React.Component {
 
   render() {
     return (
-      <BlogList posts={this.state.posts} addLike={this.addLike}/>
+      <div>
+        <BlogList posts={this.state.posts} addLike={this.addLike}/>
+        <PieChart columns={[ ...this.state.posts.map( item => [item.text, item.details.likes] ) ]} />
+      </div>
     )
   }
 }
@@ -126,6 +129,36 @@ function Like(props) {
         <button onClick={() => props.addLike(postId)}>Like!</button>
       </div>
     );
+}
+
+class PieChart extends React.Component {
+
+  componentDidMount() {
+    this.chart = c3.generate({
+      bindto: ReactDOM.findDOMNode(this.refs.chart),
+      data: {
+        columns: this.props.columns,
+        type : 'pie',
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    this.chart.destroy();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props != nextProps)
+      this.chart.load({
+        columns: nextProps.columns
+    });
+  }
+
+  render() {
+    return (
+      <div ref="chart" />
+    );
+  }
 }
 
 ReactDOM.render(
