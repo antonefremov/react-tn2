@@ -89,7 +89,7 @@ class BlogPage extends React.Component {
   }
 
   addLike(id) {
-    const {posts} = this.state;
+    const {posts} = _.cloneDeep(this.state);
     const postIndex = posts.findIndex((item) => item.key === id);
 
     if (postIndex > -1) {
