@@ -6,6 +6,9 @@ const root = path.join(process.cwd(), 'src');
 
 module.exports = {
   entry: [
+    'react-hot-loader/patch',
+    'webpack-dev-server/client?http://localhost:3000',
+    'webpack/hot/only-dev-server',
     './src/index.js'
   ],
 
@@ -24,19 +27,12 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-              sourceMap: true,
-            },
-          },
-        ],
-      }
+        loaders: [
+          'style-loader',
+          'css-loader?importLoaders=1'
+        ]
+      },
+      { test: /\.(eot|png|ttf|svg|woff|woff2)$/, loader: 'url-loader'}
     ]
   },
 
@@ -46,5 +42,9 @@ module.exports = {
       path.join(process.cwd(), 'src'),
       'node_modules'
     ]
-  }
+  },
+
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ]
 };

@@ -16,7 +16,7 @@ const BlogList = ({ posts, addLike }) => (
 
 BlogList.propTypes = {
   posts: PropTypes.arrayOf(PropTypes.object),
-  like: PropTypes.func.isRequired
+  addLike: PropTypes.func.isRequired
 };
 
 BlogList.defaultProps = {

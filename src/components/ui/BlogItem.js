@@ -17,7 +17,7 @@ function BlogItem({post, addLike}) {
 
 BlogItem.propTypes = {
   post: PropTypes.object,
-  addLike: PropTypes.func.isRequired
+  addLike: PropTypes.func
 };
 
 export default BlogItem;
