@@ -1,8 +1,7 @@
 import React from 'react';
-
-import BlogList from './../ui/BlogList';
-//import PieChart from './../ui/PieChart';
-import { posts } from './../../constants/static/data.js';
+import BlogList from 'components/ui/BlogList';
+/*import PieChart from 'components/ui/PieChart';*/
+import { posts } from 'constants/static/data.js';
 import { cloneDeep } from 'lodash/lang';
 
 export default class BlogPage extends React.Component {

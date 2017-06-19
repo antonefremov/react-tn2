@@ -5,14 +5,20 @@ import Image from './Image';
 import TextBox from './TextBox';
 import Details from './Details';
 import Like from './Like';
+import { Container, Segment, Divider } from 'semantic-ui-react';
 
 function BlogItem({post, addLike}) {
-  return <div>
-    <TextBox>{post.text}</TextBox>
-    <Image {...post.image}/>
-    <Like postId={post.key} likes={post.details.likes} addLike={addLike}/>
-    <Details {...post.details}/>
-  </div>;
+  return (
+    <Container>
+      <TextBox>{post.text}</TextBox>
+      <Segment compact basic vertical>
+        <Image {...post.image}/>
+        <Like postId={post.key} likes={post.details.likes} addLike={addLike}/>
+        <Details {...post.details}/>
+      </Segment>
+      <Divider hidden/>
+    </Container>
+  );
 }
 
 BlogItem.propTypes = {

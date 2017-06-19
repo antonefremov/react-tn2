@@ -1,19 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'semantic-ui-react';
+import {Label} from 'semantic-ui-react';
 
 function Like(props) {
   const {postId, likes, addLike} = props;
   return (
-    <div>
-      {likes}
-      <Button
-        color='red'
-        content='Like'
-        icon='heart'
-        onClick={() => addLike(postId)}>
-      </Button>
-    </div>
+    <Label
+      size='tiny'
+      icon='heart'
+      color='red'
+      attached='bottom right'
+      content={likes}
+      onClick={() => addLike(postId)} />
   );
 }
 

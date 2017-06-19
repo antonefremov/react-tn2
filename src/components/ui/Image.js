@@ -1,11 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Image as ImageControl} from 'semantic-ui-react';
 
 function Image(props) {
-  return <img src={props.src}
-    width={props.width}
-    height={props.height}
-    alt={props.alt}/>;
+  return (
+    <ImageControl
+      src={props.src}
+      width={props.width}
+      height={props.height}
+      alt={props.alt}
+      shape='rounded'
+    />
+  );
 }
 
 Image.defaultProps = {

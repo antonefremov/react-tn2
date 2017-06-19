@@ -1,14 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {List} from 'semantic-ui-react';
 
 function Details(props) {
-  return <div>
-    <span>by {props.author}</span>
-    <br/>
-    { !!props.createdAt && <span>Created At: {props.createdAt}</span> }
-    <br/>
-    { !!props.updatedAt && <span>Updated At: {props.updatedAt}</span> }
-  </div>;
+  return (
+    <List>
+      <List.Item>
+        <List.Header as='a'>by {props.author}</List.Header>
+      </List.Item>
+      <List.Item>
+        { !!props.createdAt && <span>Created At: {props.createdAt}</span> }
+      </List.Item>
+      <List.Item>
+        { !!props.updatedAt && <span>Updated At: {props.updatedAt}</span> }
+      </List.Item>
+    </List>
+  );
 }
 
 Details.defaultProps = {

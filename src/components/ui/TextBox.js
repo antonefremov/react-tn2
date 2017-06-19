@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Header } from 'semantic-ui-react';
 
 function TextBox(props) {
-  return <span>{props.children}</span>;
+  return <Header as='h3'>{props.children}</Header>;
 }
 
 TextBox.defaultProps = {

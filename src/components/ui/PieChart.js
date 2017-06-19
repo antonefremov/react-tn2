@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
+import c3 from 'c3';
 
 class PieChart extends React.Component {
-
   componentDidMount() {
     this.chart = c3.generate({
       bindto: ReactDOM.findDOMNode(this.refs.chart),
@@ -21,7 +22,7 @@ class PieChart extends React.Component {
     if (this.props != nextProps)
       this.chart.load({
         columns: nextProps.columns
-    });
+      });
   }
 
   render() {
@@ -32,3 +33,7 @@ class PieChart extends React.Component {
 }
 
 export default PieChart;
+
+PieChart.propTypes = {
+  columns: PropTypes.array
+};
