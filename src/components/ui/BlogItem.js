@@ -10,7 +10,7 @@ import { Container, Segment, Divider } from 'semantic-ui-react';
 function BlogItem({post, addLike}) {
   return (
     <Container>
-      <TextBox>{post.text}</TextBox>
+      <TextBox postId={post.key} text={post.text} />
       <Segment compact basic vertical>
         <Image {...post.image}/>
         <Like postId={post.key} likes={post.details.likes} addLike={addLike}/>
