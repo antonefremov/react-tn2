@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Header } from 'semantic-ui-react';
+import Link from 'components/ui/Link';
+import { postPaths } from 'helpers/routes';
 
 function TextBox(props) {
-  return <Header as='h3'>{props.children}</Header>;
+  return <Header>
+    <Link to={postPaths(props.postId)}>{props.text}</Link>
+  </Header>;
 }
 
 TextBox.defaultProps = {
@@ -11,7 +15,8 @@ TextBox.defaultProps = {
 };
 
 TextBox.propTypes = {
-  children: PropTypes.string.isRequired
+  postId: PropTypes.number.isRequired,
+  text: PropTypes.string.isRequired
 };
 
 export default TextBox;
