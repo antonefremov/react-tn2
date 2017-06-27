@@ -9,6 +9,7 @@ export default class Post extends React.Component {
   constructor(props) {
     super(props);
     this.state = { posts: [] };
+    this.fetchPosts = this.fetchPosts.bind(this);
   }
 
   componentDidMount() {
@@ -24,9 +25,16 @@ export default class Post extends React.Component {
   }
 
   render() {
+    const filteredPosts = this.state.posts.filter((item) =>
+      item.key == this.props.match.params.postId);
+
     return (
       <Item.Group>
-        <BlogItem post={this.state.posts[this.props.match.params.postId - 1]} />
+        {filteredPosts.length &&
+          filteredPosts.map(item =>
+            <BlogItem post={item} />
+          )
+        }
       </Item.Group>
     );
   }
