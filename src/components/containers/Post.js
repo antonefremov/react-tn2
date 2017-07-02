@@ -30,7 +30,7 @@ export default class Post extends React.Component {
 
     return (
       <Item.Group>
-        {filteredPosts.length &&
+        {
           filteredPosts.map(item =>
             <BlogItem post={item} />
           )
