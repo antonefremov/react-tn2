@@ -1,4 +1,4 @@
-export const postPaths = (id = ':postId') => {
+export const postPaths = (id) => {
   if (id) return `/posts/${id}`;
   else return '/';
 };
