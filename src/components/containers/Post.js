@@ -8,8 +8,9 @@ import request from 'superagent';
 export default class Post extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { posts: [] };
+    this.state = { post: {} };
     this.fetchPosts = this.fetchPosts.bind(this);
+    this.filterPosts = this.filterPosts.bind(this);
   }
 
   componentDidMount() {
@@ -20,21 +21,21 @@ export default class Post extends React.Component {
     request.get(
       'http://localhost:3001/',
       {},
-      (err, res) => this.setState({ posts: res.body })
+      (err, res) => this.filterPosts(res.body)
     );
   }
 
-  render() {
-    const filteredPosts = this.state.posts.filter((item) =>
+  filterPosts(posts) {
+    const filteredPosts = posts.filter((item) =>
       item.key == this.props.match.params.postId);
 
+    this.setState({ post: filteredPosts[0] });
+  }
+
+  render() {
     return (
       <Item.Group>
-        {
-          filteredPosts.map(item =>
-            <BlogItem post={item} />
-          )
-        }
+        {this.state.post.key && <BlogItem post={this.state.post} />}
       </Item.Group>
     );
   }
