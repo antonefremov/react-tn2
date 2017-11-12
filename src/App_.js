@@ -18,23 +18,18 @@ import { parse } from 'qs';
 class App extends Component  {
   render() {
     const routes = createRoutes();
-    routes.forEach(route => {
-      console.log(route);
-    });
+    console.log('routes: ' + routes.length);
 
     function historyCb(location) {
       const routeState = { location, params: {}, routes: [], query: {}};
 
       routes.some(route => {
         const match = matchPath(location.pathname, route);
-        console.log(location.pathname);
-        console.log(route);
+
         if (match) {
-          console.log('there was a match' + match.params);
           routeState.routes.push(route);
-          //debugger;
           assign(routeState.params, match.params);
-          assign(routeState.query, parse(location.search.substr(1)));//locaiton.pathname?
+          assign(routeState.query, parse(location.search.substr(1)));
         }
 
         return match;

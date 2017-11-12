@@ -1,23 +1,38 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Label} from 'semantic-ui-react';
+import {connect} from 'react-redux';
+import {addLike} from 'actions';
 
-function Like(props) {
-  const {postId, likes, addLike} = props;
-  return (
-    <Label
-      size='tiny'
-      icon='heart'
-      color='red'
-      attached='bottom right'
-      content={likes}
-      onClick={() => addLike(postId)} />
-  );
+class Like extends Component {
+  constructor(props) {
+    super(props);
+    //this.state.postId = props;
+    //this.state.likes = 0;
+    //yyconsole.log(count);
+  }
+
+  addLike(ev) {
+    ev.preventDefault();
+  }
+
+  render() {
+    return (
+      <Label
+        size='tiny'
+        icon='heart'
+        color='red'
+        attached='bottom right'
+        content={this.props.likes}
+        onClick={this.props.addLike}/>
+    );
+  }
 }
 
-Like.defaultProps = {
-  likes: 0
-};
+//onClick={() => addLike(postId)}
+// Like.defaultProps = {
+//   likes: 0
+// };
 
 Like.propTypes = {
   postId: PropTypes.number.isRequired,
@@ -25,4 +40,8 @@ Like.propTypes = {
   addLike: PropTypes.func.isRequired
 };
 
-export default Like;
+export default connect((state) => {
+  return {
+    likes: state.count
+  };
+},{addLike})(Like);
