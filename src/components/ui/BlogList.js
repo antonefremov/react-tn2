@@ -16,11 +16,11 @@ const BlogList = ({ posts, addLike }) => (
 
 BlogList.propTypes = {
   posts: PropTypes.arrayOf(PropTypes.object),
-  addLike: PropTypes.func.isRequired
+  addLike: PropTypes.func
 };
 
 BlogList.defaultProps = {
-  items: [],
+  posts: [],
 };
 
 export default BlogList;

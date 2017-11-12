@@ -8,8 +8,8 @@ import request from 'superagent';
 export default class BlogPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { posts: [] };
-    this.addLike = this.addLike.bind(this);
+    // this.state = { posts: [] };
+    // this.addLike = this.addLike.bind(this);
   }
 
   componentDidMount() {
@@ -36,6 +36,7 @@ export default class BlogPage extends React.Component {
   }
 
   render() {
+    //console.log("posts in the BlogList: " + this.state.posts);
     return (
       <div>
         <BlogList posts={this.state.posts} addLike={this.addLike} />
