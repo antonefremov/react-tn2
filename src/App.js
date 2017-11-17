@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { BrowserRouter as Router, matchPath, Switch } from 'react-router-dom';
+//import { withRouter } from 'react-router';
 import MainLayout from 'components/layouts/MainLayout';
 // import BlogPage from 'components/containers/BlogPage';
 // import Post from 'components/containers/Post';
@@ -15,38 +16,55 @@ import createRoutes from 'routes';
 import { assign } from 'lodash/object';
 import { parse } from 'qs';
 
-class App extends Component  {
-  render() {
-    const routes = createRoutes();
-    routes.forEach(route => {
-      console.log(route);
-    });
+const routes = createRoutes();
 
-    function historyCb(location) {
-      const routeState = { location, params: {}, routes: [], query: {}};
+function historyCb(location) {
+  const routeState = { location, params: {}, routes: [], query: {}};
 
-      routes.some(route => {
-        const match = matchPath(location.pathname, route);
-        console.log(location.pathname);
-        console.log(route);
-        if (match) {
-          console.log('there was a match' + match.params);
-          routeState.routes.push(route);
-          //debugger;
-          assign(routeState.params, match.params);
-          assign(routeState.query, parse(location.search.substr(1)));//locaiton.pathname?
-        }
+  // routes.some(route => {
+  //   const match = matchPath(location.pathname, route);
+  //   console.log(location.pathname);
+  //   console.log(route);
+  //   if (match) {
+  //     console.log('there was a match' + match.path);
+  //     //match.params.id = 'posts/1';
+  //     debugger;
+  //     routeState.routes.push(route);
+  //     //debugger;
+  //     match.params.id = match.path;
+  //     assign(routeState.params, match.params);
+  //     assign(routeState.query, parse(location.search.substr(1)));
+  //   }
+  //
+  //   return match;
+  // });
 
-        return match;
-      });
-
-      prepareData(store, routeState);
+  routes.some(route => {
+    const match = matchPath(location.pathname, route);
+    //debugger;
+    if (match) {
+      routeState.routes.push(route);
+      match.params.id = match.path;
+      assign(routeState.params, match.params);
+      assign(routeState.query, parse(location.search.substr(1)));
     }
 
-    history.listen(historyCb);
+    return match;
+  });
 
-    historyCb(window.location);
+  prepareData(store, routeState);
+}
 
+history.listen(historyCb);
+historyCb(window.location);
+
+class App extends Component {
+  // componentWillMount() {
+  //   history.listen(historyCb);
+  //   historyCb(window.location);
+  // }
+
+  render() {
     return (
       <Provider store={store}>
         <Router history={history}>

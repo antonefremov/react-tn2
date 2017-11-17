@@ -1,7 +1,8 @@
 export const postPaths = (id) => {
   //debugger;
   console.log("postPaths() is called with id = " + id);
-  if (id) return `/posts/${id}`;
+  //return `/posts/${id}`;
+  if (id) return `${id}`;//`/posts/${id}`;
   else return '/';
 };
 

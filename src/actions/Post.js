@@ -22,7 +22,7 @@ export function fetchPost(id) {
     dispatch(requestPost(id));
 
     return request
-      .get(`${API_ROOT}/posts/${id}`)
+      .get(`${API_ROOT}${id}`)///posts/${id}
       .end((err, response) => {
         err ? dispatch(errorPost()) : dispatch(receivePost(response.body));
       });
