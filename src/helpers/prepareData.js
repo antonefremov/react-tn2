@@ -4,18 +4,13 @@ import { map } from 'lodash/collection';
 
 export default function(store, state) {
   const { location, params, routes } = state;
-
-  const query = parse(location.search.substr(1));
-
+  const query = location.search ? parse(location.searh.substr(1)) : {};
   //debugger;
-  console.log('prepareData location search ' + location.search);
-
+  //const query = parse(location.search.substr(1));
   const prepareDataFns = compact(map(routes, route => route.prepareData));
-
-  console.log('prepareData' + prepareDataFns[0]);
 
   map(
     prepareDataFns,
-    prepareData => prepareData(store, query, params, location)
+    prepareData => prepareData(store, state)//query, params, location
   );
 }

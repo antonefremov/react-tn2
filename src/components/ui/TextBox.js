@@ -6,7 +6,7 @@ import { postPaths } from 'helpers/routes';
 
 function TextBox(props) {
   return <Header>
-    <Link to={postPaths(props.postId)}>{props.text}</Link>
+    <Link to={postPaths('/posts/' + props.postId)}>{props.text}</Link>
   </Header>;
 }
 

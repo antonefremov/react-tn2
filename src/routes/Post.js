@@ -5,12 +5,13 @@ import { fetchPost } from 'actions/Post';
 
 const Post = {
   exact: true,
-  path: postPaths(1),//location.pathname
+  path: postPaths(location.pathname),
   component: PostContainer,
-  prepareData: (store, query, params) => {
+  prepareData: (store, state) => { //, query, params
     //debugger;
-    console.log("routes=>Post.js is called with params " + params.id);
-    store.dispatch(fetchPost(1));//params.id
+    //console.log("routes=>Post.js is called with params " + params.id);
+    const { id } = state.params;
+    return store.dispatch(fetchPost(id));
   }
 };
 
