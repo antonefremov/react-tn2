@@ -17,7 +17,6 @@ const receivePost = (response) => ({
 });
 
 export function fetchPost(id) {
-  console.log('AC fetchPost is called with id = ' + id);
   return (dispatch) => {
     dispatch(requestPost(id));
 

@@ -1,8 +1,6 @@
 import request from 'superagent';
 import * as types from 'constants/actionTypes/PostsActionTypes';
 import { API_ROOT } from 'constants/API';
-//import { map } from 'lodash/collection';
-//import { postsPaths } from 'helpers/routes/posts';
 
 const requestPosts = () => ({
   type: types.FETCH_POSTS_REQUEST
@@ -18,7 +16,6 @@ const errorPosts = () => ({
 });
 
 export function fetchPosts() {
-  console.log('AC fetchPosts is called');
   return (dispatch) => {
     dispatch(requestPosts());
 

@@ -1,14 +1,6 @@
 import BlogList from 'components/ui/BlogList';
-import {connect } from 'react-redux';
-//import { bindActionCreators } from 'redux';
-//import {addLike} from 'actions/Posts';
-
-
-// const actionToProps = (dispatch) => {
-//     return {
-//         addLike: bindActionCreators(addLike, dispatch)
-//     }
-// };
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 const stateToProps = (state) => ({
   posts: state.posts.entries,
@@ -16,4 +8,4 @@ const stateToProps = (state) => ({
   error: state.posts.error
 });
 
-export default connect(stateToProps)(BlogList); //actionToProps
+export default withRouter(connect(stateToProps)(BlogList)); //actionToProps
