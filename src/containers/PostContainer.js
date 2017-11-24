@@ -1,5 +1,6 @@
 import Post from 'components/containers/Post';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 const stateToProps = (state) => ({
   post: state.post.entry,
@@ -7,4 +8,4 @@ const stateToProps = (state) => ({
   error: state.post.error
 });
 
-export default connect(stateToProps)(Post);
+export default withRouter(connect(stateToProps)(Post));

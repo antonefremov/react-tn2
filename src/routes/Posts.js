@@ -5,6 +5,7 @@ import { fetchPosts } from 'actions/Posts';
 
 const Posts = {
   exact: true,
+  strict: true,
   path: postPaths(),
   component: PostsContainer,
   prepareData: (store) => {

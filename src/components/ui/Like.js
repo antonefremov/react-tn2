@@ -7,9 +7,6 @@ import {addLike} from 'actions';
 class Like extends Component {
   constructor(props) {
     super(props);
-    //this.state.postId = props;
-    //this.state.likes = 0;
-    //yyconsole.log(count);
   }
 
   addLike(ev) {
