@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Label} from 'semantic-ui-react';
 import {connect} from 'react-redux';
-import {addLike} from 'actions';
+import {addLike} from 'actions/Like';
 
 class Like extends Component {
   constructor(props) {
