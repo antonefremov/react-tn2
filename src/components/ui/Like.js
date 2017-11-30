@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Label} from 'semantic-ui-react';
-import {connect} from 'react-redux';
-import {addLike} from 'actions/Like';
+//import {connect} from 'react-redux';
+//import {addLike} from 'actions/Like';
 
 class Like extends Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class Like extends Component {
         color='red'
         attached='bottom right'
         content={this.props.likes}
-        onClick={this.props.addLike}/>
+        onClick={() => this.props.likePost()}/>
     );
   }
 }
@@ -34,11 +34,13 @@ class Like extends Component {
 Like.propTypes = {
   postId: PropTypes.number.isRequired,
   likes: PropTypes.number.isRequired,
-  addLike: PropTypes.func.isRequired
+  likePost: PropTypes.func.isRequired
 };
 
-export default connect((state) => {
-  return {
-    likes: state.count
-  };
-},{addLike})(Like);
+export default Like;
+
+// export default connect((state) => {
+//   return {
+//     likes: state.count
+//   };
+// },{addLike})(Like);
