@@ -26,3 +26,10 @@ export function fetchPosts() {
       });
   };
 }
+
+export function likePost(id) {
+  return {
+    type: types.INCREMENT_LIKE,
+    id
+  };
+}
