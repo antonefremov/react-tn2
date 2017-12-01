@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Header } from 'semantic-ui-react';
 import Link from 'components/ui/Link';
-import { postPaths } from 'helpers/routes';
+import { postPath } from 'helpers/routes/post';
 
 function TextBox(props) {
   return <Header>
-    <Link to={postPaths('/posts/' + props.postId)}>{props.text}</Link>
+    <Link to={postPath('/posts/' + props.postId)}>{props.text}</Link>
   </Header>;
 }
 

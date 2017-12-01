@@ -1,4 +1,4 @@
-import Post from 'components/containers/Post';
+import Post from 'components/ui/Post';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
