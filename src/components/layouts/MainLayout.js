@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Segment, Header, Container} from 'semantic-ui-react';
 import Link from 'components/ui/Link';
-import { postPaths } from 'helpers/routes';
+import { postsPath } from 'helpers/routes/posts';
 
 const MainLayout = ({children}) => (
   <Container>
@@ -19,7 +19,7 @@ MainLayout.propTypes = {
 const Logo = () => (
   <Segment>
     <Header>
-      <Link to={postPaths('')}>React Training Blog</Link>
+      <Link to={postsPath('')}>React Training Blog</Link>
     </Header>
   </Segment>
 );

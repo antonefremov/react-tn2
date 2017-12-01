@@ -1,4 +1,4 @@
-import PostContainer from 'containers/PostContainer';
+import PostContainer from 'components/containers/PostContainer';
 import { postUrl } from 'helpers/routes/post';
 import { fetchPost } from 'actions/Post';
 

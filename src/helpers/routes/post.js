@@ -1,3 +1,5 @@
 const postUrl = (postId = ':postId') => `/posts/${postId}`;
 
-export { postUrl };
+const postPath = (id) => `${id}`;
+
+export { postPath, postUrl };
