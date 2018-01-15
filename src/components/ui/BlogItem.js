@@ -13,7 +13,7 @@ function BlogItem({post}) {
       <TextBox postId={post.key} text={post.text} />
       <Segment compact basic vertical>
         <Image {...post.image}/>
-        <Like postId={post.key}/>
+        <Like postId={post.key} likes={post.details.likes}/>
         <Details {...post.details}/>
       </Segment>
       <Divider hidden/>
@@ -24,6 +24,25 @@ function BlogItem({post}) {
 BlogItem.propTypes = {
   post: PropTypes.object,
   addLike: PropTypes.func
+};
+
+BlogItem.defaultProps = {
+  post: {
+    key: null,
+    text : '',
+    image : {
+      src: '',
+      width: '',
+      height: '',
+      alt: ''
+    },
+    details: {
+      author: '',
+      createdAt: '',
+      updatedAt: '',
+      likes: 0
+    }
+  }
 };
 
 export default BlogItem;
