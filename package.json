@@ -41,19 +41,25 @@
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
+    "app-module-path": "^2.2.0",
     "c3": "^0.4.13",
     "d3": "^4.9.1",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
     "history": "^4.7.2",
     "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-helmet": "^5.2.0",
     "react-redux": "^5.0.5",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "semantic-ui-react": "^0.68.5",
-    "superagent": "^3.5.2"
+    "superagent": "^3.5.2",
+    "webpack-dev-middleware": "^2.0.4",
+    "webpack-hot-middleware": "^2.21.0"
   }
 }
