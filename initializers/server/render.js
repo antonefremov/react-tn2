@@ -37,12 +37,12 @@ export default (req, res) => {
           </StaticRouter>
         </Provider>
       );
-      const helmet = Helmet.rewind();
+      const head = Helmet.rewind();
       res.status(200);
       res.render('index', {
         initialState,
         content,
-        helmet,
+        head
       });
     })
     .catch((e) => {
