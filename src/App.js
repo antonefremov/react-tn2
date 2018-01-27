@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Router, matchPath, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import MainLayout from 'components/layouts/MainLayout';
-import store from 'store';
+import createStore from 'store';
 import { Provider } from 'react-redux';
 import DevTools from 'components/containers/DevTools';
 import prepareData from 'helpers/prepareData';
@@ -12,7 +12,12 @@ import createRoutes from 'routes';
 import { assign } from 'lodash/object';
 import { parse } from 'qs';
 
+const store = createStore(window.__INITIAL_STATE__);
 const routes = createRoutes();
+
+function deleteGlobalState() {
+  delete window.__INITIAL_STATE__;
+}
 
 function historyCb(location) {
   const routeState = { location, params: {}, routes: [], query: {}};
@@ -52,6 +57,8 @@ class App extends Component {
     );
   }
 }
+
+deleteGlobalState();
 
 export default App;
 

@@ -5,7 +5,7 @@ export default function(store, state) {
   const { routes } = state;
   const prepareDataFns = compact(map(routes, route => route.prepareData));
 
-  map(
+  return map(
     prepareDataFns,
     prepareData => prepareData(store, state)
   );
