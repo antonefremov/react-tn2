@@ -3,7 +3,7 @@ export const posts = [
     key: 1,
     text : 'Article about a cat',
     image : {
-      src: '../images/cat.jpg',
+      src: '/images/cat.jpg',
       width: '260px',
       height: '160px',
       alt: 'A cat picture'
@@ -19,7 +19,7 @@ export const posts = [
     key: 2,
     text : 'Article about a dog',
     image : {
-      src: '../images/dog.jpg',
+      src: '/images/dog.jpg',
       width: '270px',
       height: '180px',
       alt: 'A dog picture'
@@ -35,7 +35,7 @@ export const posts = [
     key: 3,
     text : 'Article about Arnie',
     image : {
-      src: '../images/arnie.jpg',
+      src: '/images/arnie.jpg',
       width: '270px',
       height: '320px',
       alt: 'Terminator picture'

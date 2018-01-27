@@ -15,7 +15,7 @@ const express = require('express');
 
 const application = express();
 
-application.use(express.static('src/static'));
+application.use(express.static('dist'));
 application.set('views', __dirname);
 application.set('view engine', 'ejs');
 
